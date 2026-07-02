@@ -1,0 +1,37 @@
+spring:
+  application:
+    name: legalcaseflow
+  web:
+    resources:
+      cache:
+        period: 0
+        cachecontrol:
+          no-store: true
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/legalcaseflow}
+    driver-class-name: org.postgresql.Driver
+    username: ${DB_USERNAME:legalcaseflow}
+    password: ${DB_PASSWORD:legalcaseflow}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+app:
+  jwt:
+    # HS256 key, must be >= 32 bytes. Override in real deployments.
+    secret: "legalcaseflow-dev-secret-change-me-please-32bytes-minimum-1234567890"
+    expiration-ms: 86400000
+  retention:
+    # Soft-deleted business rows remain restorable for this period, then are physically deleted.
+    enabled: ${RETENTION_ENABLED:true}
+    days: ${RETENTION_DAYS:30}
+    cron: "${RETENTION_CRON:0 30 3 * * *}"
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    operationsSorter: method

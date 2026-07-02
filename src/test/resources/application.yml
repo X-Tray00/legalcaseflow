@@ -1,0 +1,22 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:legalcaseflow;DB_CLOSE_DELAY=-1
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: ""
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    open-in-view: false
+    show-sql: false
+  h2:
+    console:
+      enabled: false
+
+app:
+  jwt:
+    secret: "legalcaseflow-test-secret-change-me-please-32bytes-minimum-1234567890"
+    expiration-ms: 86400000
+  retention:
+    enabled: false
+    days: 30

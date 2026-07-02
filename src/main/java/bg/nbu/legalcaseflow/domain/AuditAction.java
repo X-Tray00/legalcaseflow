@@ -1,0 +1,18 @@
+package bg.nbu.legalcaseflow.domain;
+
+public enum AuditAction {
+    CREATE,
+    UPDATE,
+    DELETE,
+    RESTORE,
+    ACCOUNT_CREATED,
+    ACCOUNT_UPDATED,
+    ACCOUNT_DEACTIVATED,
+    ACCOUNT_REACTIVATED,
+    CHAT_CONVERSATION_CREATED,
+    CHAT_MESSAGE_SENT,
+    CHAT_MESSAGES_READ,
+    LOGIN_SUCCESS,
+    LOGIN_FAILURE,
+    ACCESS_DENIED
+}
